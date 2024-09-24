@@ -63,6 +63,27 @@
           {% endif %}
           class="product-variant-id"
         >
+         
+          {% if product.id == 9629168042299 %}
+            free variety pack product
+          <input
+            type="hidden"
+            name="properties[_variety_pack]"
+            value="true">
+          {% endif %}
+
+          {% if customer %}
+            {% assign order_count = customer.orders | size %}
+            {{ order_count }}
+             <input
+                type="hidden"
+                name="properties[_order_count]"
+                value="{{ order_count }}">
+        {% else %}
+            <!-- If no customer is logged in, display a message -->
+            <p>No customer is logged in.</p>
+        {% endif %}
+        
 
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
