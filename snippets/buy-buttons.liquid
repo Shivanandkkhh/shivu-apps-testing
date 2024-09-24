@@ -74,13 +74,13 @@
 
           {% if customer %}
             {% assign order_count = customer.orders | size %}
-            {{ order_count }}
+         order count   {{ order_count }}
              <input
                 type="hidden"
                 name="properties[_order_count]"
                 value="{{ order_count }}">
         {% else %}
-            <!-- If no customer is logged in, display a message -->
+
             <p>No customer is logged in.</p>
         {% endif %}
         
