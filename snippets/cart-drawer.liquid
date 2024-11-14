@@ -111,7 +111,15 @@
                       </th>
                     </tr>
                   </thead>
-                  <div> cart note <input> {{ cart.note }} </div>
+                  <div> cart note
+                  
+                    <form action="/cart" method="post">
+                      <label for="CartNote">Add a note to your order:</label>
+                      <textarea name="note" id="CartNote">{{ cart.note }}</textarea>
+                      <button type="submit">Save Note</button>
+                    </form>
+
+                  </div>
 
                   <tbody role="rowgroup">
                     {%- for item in cart.items -%}
